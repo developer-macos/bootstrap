@@ -1,0 +1,14 @@
+<ul class="ul-menu">
+        <li>
+            <a class="animated-link" href="indexs.html">Home Page</a>
+        </li>
+        <li>
+            <a class="animated-link" href="#tablets">Tablets</a>
+        </li>
+        <li>
+            <a class="animated-link" href="#notebooks">Notebooks</a>
+        </li>
+        <li>
+            <a class="animated-link" href="#updates">Updates</a>
+        </li>
+    </ul>

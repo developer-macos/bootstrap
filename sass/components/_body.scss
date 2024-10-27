@@ -1,0 +1,168 @@
+.ul-menu{
+    display: flex;
+    text-align: center;
+    gap: 20px;
+    list-style: none;
+    margin-left: 900px;
+
+    .ul-menu li a {
+        text-decoration: none;
+    }
+}
+
+// Sass code
+
+$transition-duration: 0.3s;
+$link-color: #3498db;
+$hover-color: #e74c3c;
+
+.animated-link {
+  display: inline-block;
+  font-size: 20px;
+  color: $link-color;
+  text-decoration: none;
+  position: relative;
+  transition: color $transition-duration ease-in-out;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background-color: $link-color;
+    transition: all $transition-duration ease-in-out;
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+
+  &:hover {
+    color: $hover-color;
+
+    &::after {
+      transform: scaleX(1);
+      background-color: $hover-color;
+      transform-origin: left;
+    }
+  }
+}
+
+
+.clicked {
+    color: $hover-color;
+  
+    &::after {
+      transform: scaleX(1);
+      background-color: $hover-color;
+      transform-origin: left;
+    }
+  }
+  
+
+  // Sass variables
+$section-bg-color: #f0f4f8;
+$primary-color: #3498db;
+$secondary-color: #2c3e50;
+$transition-duration: 0.5s;
+$transition-timing: ease-out;
+
+.animated-section {
+  background-color: $section-bg-color;
+  padding: 100px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; // Full viewport height
+
+  .content {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity $transition-duration $transition-timing, transform $transition-duration $transition-timing;
+
+    .title {
+      font-size: 2.5rem;
+      color: $primary-color;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      font-size: 1.25rem;
+      color: $secondary-color;
+    }
+  }
+
+  &.in-view {
+    .content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+
+// Sass variables
+$warning-bg-color: #f8d7da;
+$warning-text-color: #721c24;
+$warning-border-color: #f5c6cb;
+$warning-shadow-color: rgba(242, 63, 63, 0.5);
+
+$transition-duration: 0.3s;
+$animation-duration: 0.4s;
+$animation-timing: ease-in-out;
+
+.warning-text {
+  background-color: $warning-bg-color;
+  color: $warning-text-color;
+  border: 1px solid $warning-border-color;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+  box-shadow: 0 0 10px $warning-shadow-color;
+  position: relative;
+  cursor: pointer;
+  animation: pulse $animation-duration infinite alternate;
+  transition: all $transition-duration $animation-timing;
+
+  &:hover {
+    animation: shake $animation-duration;
+    box-shadow: 0 0 15px $warning-shadow-color;
+  }
+}
+
+// Animation for pulsing effect
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    background-color: $warning-bg-color;
+  }
+  100% {
+    transform: scale(1.05);
+    background-color: darken($warning-bg-color, 10%);
+  }
+}
+
+// Shake animation when hovered
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.dismiss-button {
+  background: none;
+  border: none;
+  color: $warning-text-color;
+  cursor: pointer;
+  margin-left: 10px;
+  font-weight: bold;
+  padding: 5px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
